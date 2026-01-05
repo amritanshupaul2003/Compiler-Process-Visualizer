@@ -74,6 +74,7 @@ You can customize or extend the visualizer:
 - **Modify Visualization:** Edit the front-end components in the `/app` directory to adjust how each phase is displayed.
 - **Change Port:** Modify the `package.json` or relevant configuration files to change the default running port.
 - **Theming:** Adjust CSS styles for a personalized look.
+- **Create your own front-end:** By fetching this url api you can build your own compiler visualizer "https://compiler-process-visualizer-api-backend.onrender.com"
 
 ## Contributing
 
