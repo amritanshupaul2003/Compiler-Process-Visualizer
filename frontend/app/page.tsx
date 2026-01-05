@@ -13,7 +13,7 @@ import TargetCodeVisualizer from './components/TargetCodeVisualizer';
 import { CompilationData, CompilationStage } from '@/types/compiler';
 
 const LANGUAGES = ['csharp', 'cpp', 'java', 'c'] as const;
-const API_URL = 'https://compiler-process-visualizer-api-backend.onrender.com';
+const API_URL = process.env.NEXT_PUBLIC_API_URL!;
 
 export default function Home() {
   const [code, setCode] = useState<string>('int a = 10 + 20;');
@@ -25,7 +25,7 @@ export default function Home() {
   const [error, setError] = useState<string | null>(null);
   const [isStageAnimating, setIsStageAnimating] = useState(false); // Track stage progression
   const [isComponentAnimating, setIsComponentAnimating] = useState(true); // Track component animation
-  const stageTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const stageTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const compileCode = async () => {
     setLoading(true);

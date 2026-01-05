@@ -1,23 +1,17 @@
+'use client';
 
 import dynamic from 'next/dynamic';
-import { CodeEditorProps } from "./CodeEditor"
+import type { CodeEditorProps } from './CodeEditor';
 
-const MonacoEditor = dynamic(() => import('@monaco-editor/react'), {
+const Monaco = dynamic(() => import('./CodeEditor'), {
   ssr: false,
   loading: () => (
-    <div className="h-64 bg-gray-900 rounded-lg animate-pulse flex items-center justify-center">
-      <div className="text-gray-500">Loading editor...</div>
+    <div className="h-64 flex items-center justify-center rounded-lg bg-gray-900 text-gray-500">
+      Loading editor...
     </div>
   ),
 });
 
-export default function CodeEditor({ code, onChange, language }: CodeEditorProps) {
-  return (
-    <MonacoEditor
-      height="64vh"
-      language={language}
-      value={code}
-      onChange={(value: string | undefined) => onChange(value || '')}
-    />
-  );
+export default function MonacoEditor(props: CodeEditorProps) {
+  return <Monaco {...props} />;
 }
