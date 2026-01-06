@@ -96,9 +96,4 @@ We welcome contributions to improve Compiler Process Visualizer!
 - Ensure compatibility with existing functionality.
 - Update documentation if necessary.
 
-
-
----
----
-
 Enjoy exploring compiler design with Compiler Process Visualizer!
